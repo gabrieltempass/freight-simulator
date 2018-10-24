@@ -24,11 +24,13 @@ function RETURN_VALUES()
   simulador_sheet_backend.getRange("D15").setValue(real_weight);
   simulador_sheet_backend.getRange("D16").setValue(price);
   
+  Utilities.sleep(10000);
+  
   var capitals = simulador_sheet_backend.getRange(13, 7, 27).getValues();
   var interiors = simulador_sheet_backend.getRange(13, 8, 27).getValues();
   var freight_average_olist = simulador_sheet_backend.getRange("F8").getValue();
   var freight_average_correios = simulador_sheet_backend.getRange("I8").getValue();
-  var comparison = "correios é " + Math.round(((freight_average_correios / freight_average_olist) - 1) * 100) + " % mais caro que olist";
+  var comparison = "correios Ã© " + Math.round(((freight_average_correios / freight_average_olist) - 1) * 100) + "% mais caro que olist";
   
   simulador_sheet_simulator.getRange(14, 7, 27).setValues(capitals);
   simulador_sheet_simulator.getRange(14, 9, 27).setValues(interiors);
