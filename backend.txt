@@ -64,12 +64,12 @@ function FREIGHT_COST(city_seller, state_seller, modality, length, width, height
         var modality_sheet = ss.getSheetByName("PAC - Contrato");
         var index_last_weight = 13;
         break;
-      case contract === "correios balcão" && modality === "SEDEX":
-        var modality_sheet = ss.getSheetByName("SEDEX - Balcão");
+      case contract === "correios balcÃ£o" && modality === "SEDEX":
+        var modality_sheet = ss.getSheetByName("SEDEX - BalcÃ£o");
         var index_last_weight = 13;
         break;
-      case contract === "correios balcão" && modality === "PAC":
-        var modality_sheet = ss.getSheetByName("PAC - Balcão");
+      case contract === "correios balcÃ£o" && modality === "PAC":
+        var modality_sheet = ss.getSheetByName("PAC - BalcÃ£o");
         var index_last_weight = 12;
     }
     
@@ -110,12 +110,12 @@ function FREIGHT_COST(city_seller, state_seller, modality, length, width, height
     var insurance_cost = 0;
     if (price > 18.50)
     {
-      insurance_cost = (price - 18.50) * 0.007
+      insurance_cost = (price - 18.50) * 0.01
     }
     var special_treatment_cost = 0;
     if (length > 70 || width > 70 || height > 70)
     {
-      special_treatment_cost = 20;
+      special_treatment_cost = 79;
     }
     var freight_cost = transportation_cost + insurance_cost + special_treatment_cost;
     return freight_cost;
@@ -128,7 +128,7 @@ function FREIGHT_COST(city_seller, state_seller, modality, length, width, height
 
 function UNACCENT(input)
 {
-  var accent_characters = "ŠšŸÀÁÂÃÄÅÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖÙÚÛÜİàáâãäåçèéêëìíîïğñòóôõöùúûüıÿ";
+  var accent_characters = "Å Å½Å¡Å¾Å¸Ã€ÃÃ‚ÃƒÃ„Ã…Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Ã™ÃšÃ›ÃœÃÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Ã¹ÃºÃ»Ã¼Ã½Ã¿";
   var regular_characters = "SZszYAAAAAACEEEEIIIIDNOOOOOUUUUYaaaaaaceeeeiiiidnooooouuuuyy";
   for(var i1 = 1; i1 <= input.length; i1 ++)
   {
@@ -159,8 +159,8 @@ function UNACCENT(input)
 
 function LOWERCASE(input)
 {
-  var uppercase_characters = "ABCDEFGHIJKLMNOPQRSTUVXWYZÀÁÂÃÄÅÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖŠÙÚÛÜİŸ";
-  var lowercase_characters = "abcdefghijklmnopqrstuvxwyzàáâãäåçèéêëìíîïğñòóôõöšùúûüıÿ";
+  var uppercase_characters = "ABCDEFGHIJKLMNOPQRSTUVXWYZÃ€ÃÃ‚ÃƒÃ„Ã…Ã‡ÃˆÃ‰ÃŠÃ‹ÃŒÃÃÃÃÃ‘Ã’Ã“Ã”Ã•Ã–Å Ã™ÃšÃ›ÃœÃÅ¸Å½";
+  var lowercase_characters = "abcdefghijklmnopqrstuvxwyzÃ Ã¡Ã¢Ã£Ã¤Ã¥Ã§Ã¨Ã©ÃªÃ«Ã¬Ã­Ã®Ã¯Ã°Ã±Ã²Ã³Ã´ÃµÃ¶Å¡Ã¹ÃºÃ»Ã¼Ã½Ã¿Å¾";
   for(var i1 = 1; i1 <= input.length; i1 ++)
   {
     for(var i2 = 1; i2 <= uppercase_characters.length; i2 ++)
@@ -214,7 +214,7 @@ function ROUTE_CLASSIFICATION(city_seller, state_seller, capital_customer, state
 {
   var app = SpreadsheetApp;
   var ss = app.getActiveSpreadsheet();
-  var classificacao_sheet = ss.getSheetByName("Classificação");
+  var classificacao_sheet = ss.getSheetByName("ClassificaÃ§Ã£o");
   var capitais_sheet = ss.getSheetByName("Capitais");
   
 //----------------------------------------------------------------------------------------
@@ -283,7 +283,7 @@ function ROUTE_CLASSIFICATION(city_seller, state_seller, capital_customer, state
 // (5.4) SECTION THAT CLASSIFIES THE ROUTE ACCORDING TO THE NUMBER AND RETURNS THE FINAL CLASSIFICATION
 //-----------------------------------------------------------------------------------------------------
   
-  if(contract === "correios balcão" && (classification_letter === "L" || classification_letter === "E"))
+  if(contract === "correios balcÃ£o" && (classification_letter === "L" || classification_letter === "E"))
   {
     var route_classification = classification_letter;
   }
