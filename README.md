@@ -20,7 +20,7 @@ This script belongs to a Google Sheets that helps users to calculate the freight
 * Width: 15
 * Height: 3.5
 * Weight: 180
-* Price: 39.99 BRL
+* Price: 39.99
 
 ![Interface](interface.png)
 
@@ -28,4 +28,4 @@ When the information is inputed, the spreadsheet shows in a table how much would
 
 The table presents prices from a standard contract, available to all citiziens, and prices from a special contract, available just for approved companies. It also exhibits a weighted average price, based on the e-commerce demand from each state of the country.
 
-The limitations in length, width, height, weight and price are due to restrictions from Correios.
+The input limitations in length, width, height, weight and price are due to restrictions from Correios.
